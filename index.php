@@ -1,31 +1,29 @@
-<?php
-// Empezamos con la apertura de PHP
-
-// Definimos algunas variables
-$nombre = "Usuario";
-
-// Aquí podrías agregar tu lógica, como manejar formularios o consultar una base de datos.
-
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Sencilla en PHP</title>
-    <link rel="stylesheet" href="style.css"> <!-- Si deseas agregar un archivo de estilos -->
+    <title>Galería de Imágenes</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <h1>Bienvenido a nuestra página web, <?php echo $nombre; ?>!</h1>
-    <p>Esta es una página sencilla creada con PHP</p>
+    <h1>📷 Galería de Imágenes</h1>
 
-    <form action="procesar.php" method="POST">
-        <label for="nombre">Tu nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-        <input type="submit" value="Enviar">
+    <!-- Formulario para subir imágenes -->
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <button type="submit">Subir Imagen</button>
     </form>
+
+    <div class="gallery">
+        <?php
+        $files = glob("uploads/*.{jpg,png,gif,jpeg}", GLOB_BRACE);
+        foreach ($files as $file) {
+            echo "<div class='image-container'><img src='$file'></div>";
+        }
+        ?>
+    </div>
 
 </body>
 </html>
