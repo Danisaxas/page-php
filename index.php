@@ -19,7 +19,7 @@ $nombre = "Usuario";
 <body>
 
     <h1>Bienvenido a nuestra página web, <?php echo $nombre; ?>!</h1>
-    <p>Esta es una página sencilla creada con PHP.</p>
+    <p>Esta es una página sencilla creada con PHP</p>
 
     <form action="procesar.php" method="POST">
         <label for="nombre">Tu nombre:</label>
